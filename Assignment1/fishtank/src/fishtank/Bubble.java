@@ -82,7 +82,7 @@ public class Bubble {
     public void floatStraightUp() {
 
         // Move upwards.
-        y--;
+        if (y > 0) y--;
         x = x; // no change left or right
 
         // Figure out whether to grow, if at all.
@@ -100,8 +100,8 @@ public class Bubble {
     public void floatLeftUp() {
 
         // Move upwards.
-        y--;
-         x -= 1; //left
+        if(y>0)y--;
+         if (x > 0){x -= 1;} //left
 
         // Figure out whether to grow, if at all.
           d = Math.random();
@@ -120,7 +120,7 @@ public class Bubble {
 
         // Move upwards.
         y--;
-x += 1;// right
+if (x < 48){x += 1;}// right
         // Figure out whether to grow, if at all.
         d = Math.random();
           // Oocasinally change a . to a o or a o to a O

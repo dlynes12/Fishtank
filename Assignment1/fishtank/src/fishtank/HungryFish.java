@@ -8,6 +8,7 @@ public class HungryFish {
 
     /** How this fish appears on the screen. */
     public String appearance;
+    public String backAppearence;
 
     /** Indicates whether this fish is moving right. */
     boolean goingRight;
@@ -26,6 +27,7 @@ public class HungryFish {
     public HungryFish() {
         colour = Color.cyan.darker().darker().darker();
         appearance = "><MEHUNGRY>";
+        backAppearence = "<MEHUNGRY><";
         goingRight = true;
     }
 
@@ -47,11 +49,11 @@ public class HungryFish {
      */
     protected void blowBubble() {
           Bubble b = new Bubble();
-          b.setLocation(c, r);
+        if (r < 48 && c < 640/6){b.setLocation(r, c);
           System.out.println(r + " " + c);
 
             FishTank.myLittleFishies[r][c] = b;
-    }
+    }}
 
 
 
@@ -62,7 +64,7 @@ public class HungryFish {
     private String reverseAppearance() {
       System.out.println("Turning around" + this.appearance);
         String reverse = "";
-        for (int i=appearance.length()-1; i>=0; i--) {
+        /*for (int i=appearance.length()-1; i>=0; i--) {
             switch (appearance.charAt(i)) {
             case ')': reverse += '('; break;
             case '(': reverse += ')'; break;
@@ -74,10 +76,12 @@ public class HungryFish {
             case ']': reverse += '['; break;
             default: reverse += appearance.charAt(i); break;
             }
-        }
+        }*/
         System.out.println("Turned around" + this.appearance);
-        appearance = reverse;
-        return reverse;
+        reverse = appearance;
+        appearance = backAppearence;
+        backAppearence = reverse;
+        return appearance;
     }
 
 
@@ -134,29 +138,35 @@ public class HungryFish {
         // Move one spot to the right or left.
         if (goingRight) {
             c += 1;
-        } else {
+
+        } else if (c >0 ){
             c -= 1;
-        }
+
+        }else {c += 1;}
+
 
         // Figure out whether I blow a bubble.
         double d = Math.random();
-        // If it's elss tahn 10%, blow a bubble.
+        // If it's less than 10%, blow a bubble.
         if (d < 0.1) { blowBubble(); }
 
         // Figure out whether I turn around.
         d = Math.random();
-        // If it's elss tahn 10%, turn around
+        // If it's less than 10%, turn around
         if (d < 0.1) { turnAround(); }
 
         // Figure out whether to move up or down, or neither.
         d = Math.random();
-        // If it's elss tahn 10%, move up or down.
+        // If it's less than 10%, move up or down.
         if (d < 0.1) {
-            // Increment
             r += 1;
-        } else if (d < 0.2) {
-            // Decrement
-            r -= 1;
+            System.out.println("case 1");
+        } else if (d < 0.2 && r >0) {
+            r += 1;
+            System.out.println("case 2");
         }
+        else if(d < 0.2 && r > 0) {r -=1;
+            System.out.println("cas3");}
     }
-}
+    }
+
