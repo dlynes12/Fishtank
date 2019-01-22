@@ -90,7 +90,7 @@ public class FishTank {
                 f.repaint();
 
                 // Wait .3 seconds before redoing the queue.
-                try { Thread.sleep(50); } catch(Exception e) {}
+                try { Thread.sleep(300); } catch(Exception e) {}
             }
 
     }
