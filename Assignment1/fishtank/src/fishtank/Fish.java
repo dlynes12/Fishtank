@@ -48,7 +48,7 @@ public class Fish {
      */
     protected void blowBubble() {
 		  Bubble b = new Bubble();
-		  b.setLocation(c, r);
+		  b.setLocation(r, c);
 		  System.out.println(r + " " + c);
 
 			FishTank.myLittleFishies[r][c] = b;

@@ -60,7 +60,7 @@ public class HungryFish {
      * appearances.
      */
     private String reverseAppearance() {
-      System.out.println("Turnign around" + this.appearance);
+      System.out.println("Turning around" + this.appearance);
         String reverse = "";
         for (int i=appearance.length()-1; i>=0; i--) {
             switch (appearance.charAt(i)) {
