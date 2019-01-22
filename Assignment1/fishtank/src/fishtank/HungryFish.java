@@ -48,12 +48,12 @@ public class HungryFish {
      * Causes this fish to blow a bubble.
      */
     protected void blowBubble() {
-          Bubble b = new Bubble();
-        if (r < 48 && c < 640/6){b.setLocation(r, c);
-          System.out.println(r + " " + c);
+        Bubble b = new Bubble();
+        b.setLocation(c, r);
+        System.out.println(r + " " + c);
 
-            FishTank.myLittleFishies[r][c] = b;
-    }}
+        FishTank.myLittleFishies[r][c] = b;
+    }
 
 
 
@@ -136,37 +136,32 @@ public class HungryFish {
     public void move() {
 
         // Move one spot to the right or left.
-        if (goingRight) {
+        if (goingRight && c < 94) {
             c += 1;
-
-        } else if (c >0 ){
+        } else if (c >2) {
             c -= 1;
-
-        }else {c += 1;}
-
+        }
 
         // Figure out whether I blow a bubble.
         double d = Math.random();
-        // If it's less than 10%, blow a bubble.
-        if (d < 0.1) { blowBubble(); }
+        // If it's elss tahn 10%, blow a bubble.
+        if (d < 0.1) {
+            /*System.out.println("Bubble R "+ r +"C " + c);*/ blowBubble(); }
 
         // Figure out whether I turn around.
         d = Math.random();
-        // If it's less than 10%, turn around
+        // If it's elss tahn 10%, turn around
         if (d < 0.1) { turnAround(); }
 
         // Figure out whether to move up or down, or neither.
         d = Math.random();
-        // If it's less than 10%, move up or down.
-        if (d < 0.1) {
+        // If it's elss tahn 10%, move up or down.
+        if (d < 0.1 && r < 42) {
+            // Increment
             r += 1;
-            System.out.println("case 1");
-        } else if (d < 0.2 && r >0) {
-            r += 1;
-            System.out.println("case 2");
+        } else if (d < 0.2 && r > 4) {
+            // Decrement
+            r -= 1;
         }
-        else if(d < 0.2 && r > 0) {r -=1;
-            System.out.println("cas3");}
     }
-    }
-
+}

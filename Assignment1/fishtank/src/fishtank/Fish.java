@@ -48,12 +48,11 @@ public class Fish {
      */
     protected void blowBubble() {
 		  Bubble b = new Bubble();
-		  if (r < 48 && c < 640/6){b.setLocation(r, c);
+		  b.setLocation(c, r);
 		  System.out.println(r + " " + c);
-		  System.out.println("made a bubble");
 
 			FishTank.myLittleFishies[r][c] = b;
-    }}
+    }
 
 
 
@@ -133,11 +132,11 @@ public class Fish {
     public void move() {
 
         // Move one spot to the right or left.
-        if (goingRight) {
-            c += 1;
-        } else if (c >0 ){
-            c -= 1;
-        }else {c += 1;}
+        if (goingRight && c < 104) {
+            c += 1; // move right
+        } else if (c >2) {
+            c -= 1;//move left
+        }
 
         // Figure out whether I blow a bubble.
         double d = Math.random();
@@ -149,19 +148,11 @@ public class Fish {
 
         // Figure out whether to move up or down, or neither.
 		d = Math.random();
-        if (d < 0.1 && r > 48) {
+        if (d < 0.1 && r < 42) {
             r += 1;
-            System.out.println("added to r  = " + r);
-        } else if (d < 0.2 && r > 48) {
-            r += 1;
-            System.out.println("added to r  = " + r);
-
-        }
-        else if(d < 0.2 && r < 0) {
-            r -= 1;
-            System.out.println("subtracted to r  = " + r);
-            System.out.println((d < 0.2 && r < 48));
+            System.out.println("down"); // down
+        } else if (d > 0.2 && r > 4) {
+            r -= 1; // up
         }
     }
-    }
-
+}
