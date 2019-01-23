@@ -5,7 +5,7 @@ easy to learn. Hash marks (the number sign) indicate headers. Asterisks indicate
 
 # List of code smells
 
-## Code Smell 1: Protected int Y
+## Code Smell 1: Change Preventers
 
 ### Code Smell Category: [Write the code smell category name]
 
@@ -28,7 +28,7 @@ how would you refactor the code?]
 
 ============================================================
 
-## Code Smell 2:  Fish and hungryFish share many functions.
+## Code Smell 2:  aFish and hungryFish share many functions.
 
 ### Code Smell Category: Design
 

@@ -4,7 +4,7 @@ import java.awt.*;
 /**
  * A fish.
  */
-public class HungryFish {
+public class HungryFish extends tankObjects {
 
     /** How this fish appears on the screen. */
     public String appearance;
@@ -63,20 +63,7 @@ public class HungryFish {
      */
     private String reverseAppearance() {
       System.out.println("Turning around" + this.appearance);
-        String reverse = "";
-        /*for (int i=appearance.length()-1; i>=0; i--) {
-            switch (appearance.charAt(i)) {
-            case ')': reverse += '('; break;
-            case '(': reverse += ')'; break;
-            case '>': reverse += '<'; break;
-            case '<': reverse += '>'; break;
-            case '}': reverse += '{'; break;
-            case '{': reverse += '}'; break;
-            case '[': reverse += ']'; break;
-            case ']': reverse += '['; break;
-            default: reverse += appearance.charAt(i); break;
-            }
-        }*/
+        String reverse;
         System.out.println("Turned around" + this.appearance);
         reverse = appearance;
         appearance = backAppearence;

@@ -8,6 +8,7 @@ public class Fish extends tankObjects {
 
     /** How this fish appears on the screen. */
     String appearance;
+    String backAppearence;
 
     /** Indicates whether this fish is moving right. */
     boolean goingRight;
@@ -26,6 +27,7 @@ public class Fish extends tankObjects {
     public Fish() {
         colour = Color.cyan.darker().darker().darker();
         appearance = "><>";
+        backAppearence = "<><";
         goingRight = true;
     }
 
@@ -37,8 +39,7 @@ public class Fish extends tankObjects {
      * @param b  the second coordinate.
      */
     public void setLocation(int a, int b) {
-      x = a;
-      y = b;
+      super.setLocation(a,b);
     }
 
 
@@ -61,22 +62,14 @@ public class Fish extends tankObjects {
      * appearances.
      */
     private String reverseAppearance() {
-        String reverse = "";
-        for (int i=appearance.length()-1; i>=0; i--) {
-            switch (appearance.charAt(i)) {
-            case ')': reverse += '('; break;
-            case '(': reverse += ')'; break;
-            case '>': reverse += '<'; break;
-            case '<': reverse += '>'; break;
-            case '}': reverse += '{'; break;
-            case '{': reverse += '}'; break;
-            case '[': reverse += ']'; break;
-            case ']': reverse += '['; break;
-            default: reverse += appearance.charAt(i); break;
-            }
-        }
+        System.out.println("Turning around" + this.appearance);
+        String reverse;
+        System.out.println("Turned around" + this.appearance);
+        reverse = appearance;
+        appearance = backAppearence;
+        backAppearence = reverse;
+        return appearance;
 
-        return reverse;
     }
 
 

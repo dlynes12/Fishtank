@@ -68,16 +68,17 @@ public class FishTank {
 
                 for(int a=0;a!=(int)(480/10);a++){
                 for(int b=0;b!=(int)(640/6);b++){
-                    if (myLittleFishies[a][b] != null)
-                        if (myLittleFishies[a][b] instanceof Fish) {
-                            ((Fish) myLittleFishies[a][b]).move();
-                        }else if (myLittleFishies[a][b] instanceof Seaweed) {
-                          ((Seaweed) myLittleFishies[a][b]).wave();
-                        }else if (myLittleFishies[a][b] instanceof HungryFish) {
-                          ((HungryFish) myLittleFishies[a][b]).move();
-                        }if (myLittleFishies[a][b] instanceof Bubble) {
+                    Object tankItem = myLittleFishies[a][b];
+                    if (tankItem != null)
+                        if (tankItem instanceof Fish) {
+                            ((Fish) tankItem).move();
+                        }else if (tankItem instanceof Seaweed) {
+                          ((Seaweed) tankItem).wave();
+                        }else if (tankItem instanceof HungryFish) {
+                          ((HungryFish) tankItem).move();
+                        }if (tankItem instanceof Bubble) {
                           // Figure out whether to float left or right, if at all.
-                          Bubble heybub= (Bubble) myLittleFishies[a][b];
+                          Bubble heybub= (Bubble) tankItem;
                           heybub.d = Math.random();
                           if (heybub.d < 0.33) heybub.floatStraightUp();
                           else if (heybub.d < 0.66) heybub.floatRightUp();
@@ -90,7 +91,7 @@ public class FishTank {
                 f.repaint();
 
                 // Wait .3 seconds before redoing the queue.
-                try { Thread.sleep(300); } catch(Exception e) {}
+                try { Thread.sleep(150); } catch(Exception e) {}
             }
 
     }
