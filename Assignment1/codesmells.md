@@ -28,7 +28,7 @@ how would you refactor the code?]
 
 ============================================================
 
-## Code Smell 2: Fish and hungryFish share many functions.
+## Code Smell 2:  Fish and hungryFish share many functions.
 
 ### Code Smell Category: Design
 
