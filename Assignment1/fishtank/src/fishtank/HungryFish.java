@@ -4,30 +4,19 @@ import java.awt.*;
 /**
  * A fish.
  */
-public class HungryFish extends tankObjects {
+public class HungryFish extends Fish{
 
     /** How this fish appears on the screen. */
-    public String appearance;
-    public String backAppearence;
-
-    /** Indicates whether this fish is moving right. */
-    boolean goingRight;
-
-    /** This fish's first coordinate. */
-    int r;
-    /** This fish's second coordinate. */
-    int c;
-    /** The colour of this fish. */
-    private Color colour;
-
+    public String frontAp;
+    public String backAp;
 
     /**
      * Constructs a new hungry fish.
      */
     public HungryFish() {
         colour = Color.cyan.darker().darker().darker();
-        appearance = "><MEHUNGRY>";
-        backAppearence = "<MEHUNGRY><";
+        frontAp = "><MEHUNGRY>";
+        backAp = "<MEHUNGRY><";
         goingRight = true;
     }
 
@@ -38,8 +27,7 @@ public class HungryFish extends tankObjects {
      * @param b  the second coordinate.
      */
     public void setLocation(int a, int b) {
-      r = a;
-      c = b;
+      super.setLocation(a,b);
     }
 
 
@@ -47,45 +35,38 @@ public class HungryFish extends tankObjects {
     /**
      * Causes this fish to blow a bubble.
      */
-    protected void blowBubble() {
-        Bubble b = new Bubble();
-        b.setLocation(c, r);
-        System.out.println(r + " " + c);
+    public void blowBubble(int y, int x){
+        super.blowBubble(y,x);
 
-        FishTank.myLittleFishies[r][c] = b;
-    }
-
-
-
-    /**
-     * Build and initialize this fish's forward and backward
-     * appearances.
-     */
-    private String reverseAppearance() {
-      System.out.println("Turning around" + this.appearance);
-        String reverse;
-        System.out.println("Turned around" + this.appearance);
-        reverse = appearance;
-        appearance = backAppearence;
-        backAppearence = reverse;
-        return appearance;
     }
 
 
     /**
      * Turns this fish around, causing it to reverse direction.
      */
+    public String reverseAppearance() {
+        String reverse;
+        reverse = frontAp;
+        frontAp = backAp;
+        backAp = reverse;
+        return frontAp;
+    }
+
+
+    /**
+     * Build and initialize this fish's forward and backward
+     * appearances.
+     */
     protected void turnAround() {
         goingRight = !goingRight;
         if (goingRight) {
-            appearance = reverseAppearance();
+            frontAp = this.reverseAppearance();
         } else {
-            appearance = reverseAppearance();
+            frontAp = this.reverseAppearance();
         }
     }
 
-    /** The font used to draw instances of this class. */
-    static Font FONT = new Font("Monospaced", Font.PLAIN, 10);
+
 
 
     /**
@@ -98,10 +79,11 @@ public class HungryFish extends tankObjects {
      * @param  y  the y-coordinate of the string's cursor location.
      */
     void drawString(Graphics g, String s, int x, int y) {
-        g.setColor(colour);
+        /*g.setColor(colour);
         g.setFont(FONT);
         FontMetrics fm = g.getFontMetrics(FONT);
-        g.drawString(s, y*fm.charWidth('W'), x*fm.getAscent());
+        g.drawString(s, y*fm.charWidth('W'), x*fm.getAscent());*/
+        super.drawString(g, s, x, y);
     }
 
 
@@ -112,7 +94,7 @@ public class HungryFish extends tankObjects {
      * @param  g  the graphics context in which to draw this item.
      */
     public void draw(Graphics g) {
-        drawString(g, appearance, r, c);
+        super.drawString(g, frontAp, x, y);
     }
 
 
@@ -123,19 +105,16 @@ public class HungryFish extends tankObjects {
     public void move() {
 
         // Move one spot to the right or left.
-        if (goingRight){ if(c < 94) {
-            c += 1;//move right
-        }else { c -= 1;}
-        } else if (c >2) {
-            c -= 1;
+        if (goingRight){ if(y < 94) {
+            y += 1;//move right
+        }else { y -= 1;}
+        } else if (y >2) {
+            y -= 1;
         }
-
         // Figure out whether I blow a bubble.
         double d = Math.random();
-        // If it's elss tahn 10%, blow a bubble.
-        if (d < 0.1) {
-            /*System.out.println("Bubble R "+ r +"C " + c);*/ blowBubble(); }
-
+        // If it's less than 10%, blow a bubble.
+        if (d < 0.1) { blowBubble(y,x); }
         // Figure out whether I turn around.
         d = Math.random();
         // If it's elss tahn 10%, turn around
@@ -144,12 +123,10 @@ public class HungryFish extends tankObjects {
         // Figure out whether to move up or down, or neither.
         d = Math.random();
         // If it's elss tahn 10%, move up or down.
-        if (d < 0.1 && r < 42) {
-            // Increment
-            r += 1;
-        } else if (d > 0.2 && r > 4) {
-            // Decrement
-            r -= 1;
-        }
+        if (d < 0.1){if (x < 42){x += 1;// down
+        }else {x -=1;}//move up from bottom wall
+        }else if (d < 0.2){if(x > 4) {
+            x -= 1; // up
+        }else{x +=1;}}//move down from top wall}}
     }
 }

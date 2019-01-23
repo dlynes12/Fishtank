@@ -4,21 +4,20 @@ import java.awt.*;
 /**
  * A fish.
  */
-public class Fish extends tankObjects {
+public class Fish {
 
-    /** How this fish appears on the screen. */
-    String appearance;
-    String backAppearence;
+    static Font FONT = new Font("Monospaced", Font.PLAIN, 10);
+    Color colour;
 
     /** Indicates whether this fish is moving right. */
     boolean goingRight;
-
-    /** This fish's first coordinate. */
-    int x;
-    /** This fish's second coordinate. */
-    int y;
-    /** The colour of this fish. */
-    Color colour;
+    /** This is the first coordinate. */
+    public int x;
+    /** This is the second coordinate. */
+    public int y;
+    /** How this object appears on screen appears on the screen. */
+    String appearance;
+    String backAppearance;
 
 
     /**
@@ -27,7 +26,7 @@ public class Fish extends tankObjects {
     public Fish() {
         colour = Color.cyan.darker().darker().darker();
         appearance = "><>";
-        backAppearence = "<><";
+        backAppearance = "<><";
         goingRight = true;
     }
 
@@ -39,7 +38,10 @@ public class Fish extends tankObjects {
      * @param b  the second coordinate.
      */
     public void setLocation(int a, int b) {
-      super.setLocation(a,b);
+        // set x to a
+        x = a;
+        // set y to b
+        y = b;
     }
 
 
@@ -47,12 +49,12 @@ public class Fish extends tankObjects {
     /**
      * Causes this fish to blow a bubble.
      */
-    protected void blowBubble() {
+    protected void blowBubble(int y, int x) {
 		  Bubble b = new Bubble();
 		  b.setLocation(y, x);
 		  System.out.println(x + " " + y);
-
-			FishTank.myLittleFishies[x][y] = b;
+            if(FishTank.myLittleFishies[x][y] == null){
+			FishTank.myLittleFishies[x][y] = b;}
     }
 
 
@@ -62,12 +64,10 @@ public class Fish extends tankObjects {
      * appearances.
      */
     private String reverseAppearance() {
-        System.out.println("Turning around" + this.appearance);
         String reverse;
-        System.out.println("Turned around" + this.appearance);
         reverse = appearance;
-        appearance = backAppearence;
-        backAppearence = reverse;
+        appearance = backAppearance;
+        backAppearance = reverse;
         return appearance;
 
     }
@@ -86,8 +86,6 @@ public class Fish extends tankObjects {
         }
     }
 
-    /** The font used to draw instances of this class. */
-    static Font FONT = new Font("Monospaced", Font.PLAIN, 10);
 
 
     /**
@@ -98,7 +96,7 @@ public class Fish extends tankObjects {
      * @param  s  the string to draw.
      * @param  x  the x-coordinate of the string's cursor location.
      * @param  y  the y-coordinate of the string's cursor location.
-     */
+        */
     void drawString(Graphics g, String s, int x, int y) {
         g.setColor(colour);
         g.setFont(FONT);
@@ -108,11 +106,12 @@ public class Fish extends tankObjects {
 
 
 
+
     /**
      * Draws this fish tank item.
      *
      * @param  g  the graphics context in which to draw this item.
-     */
+    */
     public void draw(Graphics g) {
         drawString(g, appearance, x, y);
     }
@@ -125,7 +124,7 @@ public class Fish extends tankObjects {
     public void move() {
 
         // Move one spot to the right or left.
-        if (goingRight){if (y < 104) {
+        if (goingRight){if (y < 102) {
             y += 1;}//move right
             else {this.turnAround();}  // move left from right wall
         } else if (y >2) {
@@ -134,7 +133,7 @@ public class Fish extends tankObjects {
 
         // Figure out whether I blow a bubble.
         double d = Math.random();
-        if (d < 0.1) { blowBubble(); }
+        if (d < 0.1) { blowBubble(y,x); }
 
         // Figure out whether I turn around.
         d = Math.random();

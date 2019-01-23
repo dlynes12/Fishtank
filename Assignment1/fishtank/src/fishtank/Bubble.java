@@ -4,7 +4,7 @@ import java.awt.*;
 /**
  * A bubble.
  */
-public class Bubble extends tankObjects {
+public class Bubble {
 
     /** How this bubble appears on the screen. */
     private String appearance;
@@ -79,6 +79,19 @@ public class Bubble extends tankObjects {
     /**
      * Causes this item to take its turn in the fish-tank simulation, moving straight up.
      */
+
+    public void changeAppearence(){
+        d = Math.random();
+        // Oocasinally change a . to a o or a o to a O
+        if (d < 0.05) {
+            // If the appearance is a ., change it to an o
+            if (appearance.equals("."))appearance="o";
+                // If the appearance is an o, change it to a O
+            else if (appearance.equals("o"))appearance="O";
+        }
+    }
+
+
     public void floatStraightUp() {
 
         // Move upwards.
@@ -86,15 +99,9 @@ public class Bubble extends tankObjects {
         x = x; // no change left or right
 
         // Figure out whether to grow, if at all.
-        d = Math.random();
-          // Oocasinally change a . to a o or a o to a O
-        if (d < 0.05) {
-            // If the appearance is a ., change it to an o
-            if (appearance.equals("."))appearance="o";
-            // If the appearance is an o, change it to a O
-            else if (appearance.equals("o"))appearance="O";
-        }
-    }    /**
+        changeAppearence();
+    }
+            /**
      * Causes this item to take its turn in the fish-tank simulation, moving up and left.
      */
     public void floatLeftUp() {
@@ -106,12 +113,7 @@ public class Bubble extends tankObjects {
         // Figure out whether to grow, if at all.
           d = Math.random();
           // Oocasinally change a . to a o or a o to a O
-        if (d < 0.05) {
-            // If the appearance is a ., change it to an o
-            if (appearance.equals(".")) appearance = "o";
-            // If the appearance is an o, change it to a O
-            else if (appearance.equals("o")) appearance = "O";
-        }
+        changeAppearence();
     }
     /**
      * Causes this item to take its turn in the fish-tank simulation.
@@ -124,11 +126,6 @@ if (x < 48){x += 1;}// right
         // Figure out whether to grow, if at all.
         d = Math.random();
           // Oocasinally change a . to a o or a o to a O
-        if (d < 0.05) {
-            // If the appearance is a ., change it to an o
-            if (appearance.equals("."))appearance="o";
-            // If the appearance is an o, change it to a O
-            else if (appearance.equals("o"))appearance="O";
-        }
+        changeAppearence();
     }
 }
