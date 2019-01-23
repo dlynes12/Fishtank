@@ -136,8 +136,9 @@ public class HungryFish {
     public void move() {
 
         // Move one spot to the right or left.
-        if (goingRight && c < 94) {
-            c += 1;
+        if (goingRight){ if(c < 94) {
+            c += 1;//move right
+        }else { c -= 1;}
         } else if (c >2) {
             c -= 1;
         }
@@ -159,7 +160,7 @@ public class HungryFish {
         if (d < 0.1 && r < 42) {
             // Increment
             r += 1;
-        } else if (d < 0.2 && r > 4) {
+        } else if (d > 0.2 && r > 4) {
             // Decrement
             r -= 1;
         }

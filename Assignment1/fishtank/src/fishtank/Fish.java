@@ -4,7 +4,7 @@ import java.awt.*;
 /**
  * A fish.
  */
-public class Fish {
+public class Fish extends tankObjects {
 
     /** How this fish appears on the screen. */
     String appearance;
@@ -13,9 +13,9 @@ public class Fish {
     boolean goingRight;
 
     /** This fish's first coordinate. */
-    int r;
+    int x;
     /** This fish's second coordinate. */
-    private int c;
+    int y;
     /** The colour of this fish. */
     Color colour;
 
@@ -37,8 +37,8 @@ public class Fish {
      * @param b  the second coordinate.
      */
     public void setLocation(int a, int b) {
-      r = a;
-      c = b;
+      x = a;
+      y = b;
     }
 
 
@@ -48,10 +48,10 @@ public class Fish {
      */
     protected void blowBubble() {
 		  Bubble b = new Bubble();
-		  b.setLocation(c, r);
-		  System.out.println(r + " " + c);
+		  b.setLocation(y, x);
+		  System.out.println(x + " " + y);
 
-			FishTank.myLittleFishies[r][c] = b;
+			FishTank.myLittleFishies[x][y] = b;
     }
 
 
@@ -121,7 +121,7 @@ public class Fish {
      * @param  g  the graphics context in which to draw this item.
      */
     public void draw(Graphics g) {
-        drawString(g, appearance, r, c);
+        drawString(g, appearance, x, y);
     }
 
 
@@ -132,10 +132,11 @@ public class Fish {
     public void move() {
 
         // Move one spot to the right or left.
-        if (goingRight && c < 104) {
-            c += 1; // move right
-        } else if (c >2) {
-            c -= 1;//move left
+        if (goingRight){if (y < 104) {
+            y += 1;}//move right
+            else {this.turnAround();}  // move left from right wall
+        } else if (y >2) {
+            y -= 1;//move left
         }
 
         // Figure out whether I blow a bubble.
@@ -148,11 +149,10 @@ public class Fish {
 
         // Figure out whether to move up or down, or neither.
 		d = Math.random();
-        if (d < 0.1 && r < 42) {
-            r += 1;
-            System.out.println("down"); // down
-        } else if (d > 0.2 && r > 4) {
-            r -= 1; // up
-        }
+        if (d < 0.1){if (x < 42){x += 1;// down
+            }else {x -=1;}//move up from bottom wall
+        }else if (d < 0.2){if(x > 4) {
+            x -= 1; // up
+        }else{x +=1;}}//move down from top wall}}
     }
 }

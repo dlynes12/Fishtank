@@ -4,7 +4,7 @@ import java.awt.*;
 /**
  * A bubble.
  */
-public class Bubble {
+public class Bubble extends tankObjects {
 
     /** How this bubble appears on the screen. */
     private String appearance;
@@ -21,7 +21,7 @@ public class Bubble {
     /** This bubble's first coordinate. */
     int x;
     /** This bubble's second coordinate. */
-    protected int y;
+    int y;
 
     /**
      * Constructs a new bubble at the specified cursor location (x, y).

@@ -11,7 +11,7 @@ public class FishTank {
     /** The height of a character. */
     public final static int charHeight = 10;
     /** (int)(640/6) columns, (int)(480/10) rows. */
-    public static Object[][] myLittleFishies = new Object[(int)(480/10)][(int)(640/6)];
+    public static Object[][] myLittleFishies = new Object[(int)(480/charHeight)][(int)(640/charWidth)];
 
     /**
      * Start the fishies!
