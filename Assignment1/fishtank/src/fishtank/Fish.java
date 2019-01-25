@@ -53,8 +53,8 @@ public class Fish {
 		  Bubble b = new Bubble();
 		  b.setLocation(y, x);
 		  System.out.println(x + " " + y);
-            if(FishTank.myLittleFishies[x][y] == null){
-			FishTank.myLittleFishies[x][y] = b;}
+        System.out.println(b);
+            if (FishTank.myLittleFishies[x][y] == null){ FishTank.myLittleFishies[x][y] = b;}
     }
 
 
@@ -127,7 +127,7 @@ public class Fish {
         if (goingRight){if (y < 102) {
             y += 1;}//move right
             else {this.turnAround();}  // move left from right wall
-        } else if (y >2) {
+        } else if (y >4) {
             y -= 1;//move left
         }
 
