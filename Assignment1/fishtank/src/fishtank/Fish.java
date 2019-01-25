@@ -127,7 +127,7 @@ public class Fish {
         if (goingRight){if (y < 102) {
             y += 1;}//move right
             else {this.turnAround();}  // move left from right wall
-        } else if (y >4) {
+        } else if (y >2) {
             y -= 1;//move left
         }
 

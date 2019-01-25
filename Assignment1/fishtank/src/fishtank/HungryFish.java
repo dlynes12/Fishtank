@@ -78,13 +78,9 @@ public class HungryFish extends Fish{
      * @param  x  the x-coordinate of the string's cursor location.
      * @param  y  the y-coordinate of the string's cursor location.
      */
-    void drawString(Graphics g, String s, int x, int y) {
-        /*g.setColor(colour);
-        g.setFont(FONT);
-        FontMetrics fm = g.getFontMetrics(FONT);
-        g.drawString(s, y*fm.charWidth('W'), x*fm.getAscent());*/
+    /*void drawString(Graphics g, String s, int x, int y) {
         super.drawString(g, s, x, y);
-    }
+    }*/
 
 
 
