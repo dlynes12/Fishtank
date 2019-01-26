@@ -16,7 +16,7 @@ public class HungryFish extends Fish{
     public HungryFish() {
         colour = Color.cyan.darker().darker().darker();
         frontAp = "><MEHUNGRY>";
-        backAp = "<MEHUNGRY><";
+        backAp = "<YRGNUHEM><";
         goingRight = true;
     }
 
@@ -29,7 +29,6 @@ public class HungryFish extends Fish{
     public void setLocation(int a, int b) {
       super.setLocation(a,b);
     }
-
 
 
     /**

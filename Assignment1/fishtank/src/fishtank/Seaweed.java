@@ -60,7 +60,7 @@ public class Seaweed {
           drawString(g,"\\",my_curr_row,(-i+my_curr_col));
         else if (((i%2==1)==true)!=false){ // to make a point about comparing to true or false.
         if (lR)
-          // Draw the string for the last kind of leaning of the segment at lcoation  my_curr_row,(-i+my_curr_col)
+          // Draw the string for the last kind of leaning of the segment at location  my_curr_row,(-i+my_curr_col)
           drawString(g,"/",my_curr_row,(-i+my_curr_col));
         }
       }}

@@ -59,31 +59,10 @@ much less code than the orignal method.
 My solution would make the code clean and not bloated while making it easy to update
 and easy to understand what the method is doing.
 
-## Code Smell 2:  Fish and HungryFish share many functions.
-
-### Code Smell Category: Design
-
-### List of classes and line numbers involved: Fish HungryFish
-
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
-
-### Description:
-
-[In your own words, explain how the description of the code smell applies to this particular code.]
-
-### Solution:
-
- I would make the classes inherit a parent class for cleaner code so the same functions don't
- have to be updated twice whenever something needs to get changed.
-how would you refactor the code?]
-
-### Explanation
-
-[How does your solution get rid of the code smell? Write your explanation here.]
 
 ============================================================
 
-## Code Smell 3: [Write the code smell name]
+## Code Smell 3: Shotgun Surgery
 
 ### Code Smell Category: [Write the code smell category name]
 
@@ -105,9 +84,9 @@ how would you refactor the code?]
 [How does your solution get rid of the code smell? Write your explanation here.]
 
 ============================================================
-## Code Smell 4:  Fish and HungryFish share many functions.
+## Code Smell 4:  Temporary Field
 
-### Code Smell Category: Design
+### Code Smell Category: 
 
 ### List of classes and line numbers involved: Fish HungryFish
 
@@ -119,9 +98,6 @@ how would you refactor the code?]
 
 ### Solution:
 
- I would make the classes inherit a parent class for cleaner code so the same functions don't
- have to be updated twice whenever something needs to get changed.
-how would you refactor the code?]
 
 ### Explanation
 
@@ -129,25 +105,29 @@ how would you refactor the code?]
 
 ============================================================
 
-## Code Smell 5: [Write the code smell name]
+## Code Smell 5: Long Method
 
-### Code Smell Category: [Write the code smell category name]
+### Code Smell Category: Seaweed
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
-
+* Seaweed lines: 43-65, 
 ### Description:
 
-[In your own words, explain how the description of the code smell applies to this particular code.]
+This method does one simple thing but, it has many if statements which can be hard to read and it is
+not very adaptable.
 
 ### Solution:
 
 [In your own words, explain how you might solve this code smell:
 how would you refactor the code?]
+I would think about the function of the code and find a way that would do the same thing more efficiently,
+I would start by seeing what if statements could be combined and if the is a more straight forward method
+of accomplishing the same thing.
 
 ### Explanation
-
+My solution would shorten the code and make it much easier to understand and work with. The code would
+be more clean and simple afterward.
 [How does your solution get rid of the code smell? Write your explanation here.]
 
 ============================================================
