@@ -14,22 +14,20 @@ easy to learn. Hash marks (the number sign) indicate headers. Asterisks indicate
 * Fish and Hungry Fish Most of the entirety of both classes are extremely similar. 
 
 ### Description:
+The Fish and HungryFish class are almost exactly the same class except for a few 
+small differences, resulting in a lot of duplicate code and variables. This makes
+the code disorganized and harder to make changes to.
 
-[In your own words, explain how the description of the code smell applies to this particular code.]
 
-### Solution: They can be combined to reduce the amount of code for both of these classes and
-get rid of unneeded code.
+### Solution: 
+They can be combined to reduce the amount of code for both of these classes and
+get rid of unneeded code. I would do this by having Fish be the parent of HungryFish and having some of the methods in 
+HungryFish override the parent class if needed.
 
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
 
-### I  would create a superclass for these to classes so the duplicate code can get deleted
-I would do this by having Fish be the parent of HungryFish and having some of the methods in 
-HungryFish overide the parent class if needed.
-
-[How does your solution get rid of the code smell? Write your explanation here.]
-This would get rid of the duplicate code and make it much easier to read and it would 
-shorten it so it would be simplify the structure of it.
+###Explanation
+This would get rid of the duplicate code and make it much easier to read, update, and
+it would shorten it so it would be simplify the structure of the code.
 
 
 ============================================================
@@ -39,23 +37,21 @@ shorten it so it would be simplify the structure of it.
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
-    In HungryFish and Fish lines 64-82
+* Fish lines 64-82
+* In HungryFish 64-82
 ### Description:
 
-[In your own words, explain how the description of the code smell applies to this particular code.]
+
 The method that is used is extremely long and does not turn the letters for the fish around 
 properly. It is a whole bunch of code that would be hard to update if needed.
 ### Solution:
 
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
-I would make a backAppearence string and keep the appearence string then when the fish needs
-to turn I simply swap the backAppearence with the current appearence. Meaning there would be 
-much less code than the orignal method.
+I would make a backAppearance string and keep the appearance string then when the fish needs
+to turn I simply swap the backAppearance with the current appearance. Meaning there would be 
+much less code than the original method.
 ### Explanation
 
-[How does your solution get rid of the code smell? Write your explanation here.]
+
 My solution would make the code clean and not bloated while making it easy to update
 and easy to understand what the method is doing.
 
@@ -75,8 +71,6 @@ not very adaptable.
 
 ### Solution:
 
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
 I would think about the function of the code and find a way that would do the same thing more efficiently,
 I would start by seeing what if statements could be combined and if the is a more straight forward method
 of accomplishing the same thing.
@@ -84,11 +78,11 @@ of accomplishing the same thing.
 ### Explanation
 My solution would shorten the code and make it much easier to understand and work with. The code would
 be more clean and simple afterward.
-[How does your solution get rid of the code smell? Write your explanation here.]
+
 
 
 ============================================================
-## Code Smell 4:  Switch Staments
+## Code Smell 4:  Switch Statements
 
 ### Code Smell Category: Object-Orientation Abusers
 
@@ -98,7 +92,7 @@ be more clean and simple afterward.
 
 ### Description:
 
-The Method reverse appearence uses many switch Statements and if statements to accomplish a simple task. 
+The Method reverse appearance uses many switch Statements and if statements to accomplish a simple task. 
 This is a unnecessary use of a switch statement, it is also hard to add a new condition you would need to
 find all the switch code and modify it, which can be difficult.
 
@@ -125,7 +119,7 @@ to the method.
 ### Description:
 For these Classes and methods if you were to add a new element to the fishtank you would have to change
 how both of these methods work by adding new conditions and new changes to other classes to allow
-them to work. For FishFram and Fishtank you would need to make changes to the if statements and possibly
+them to work. For FishFrame and Fishtank you would need to make changes to the if statements and possibly
 to the other classes depending on how they might conflict with each other.
 
 ### Solution:
