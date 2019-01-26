@@ -114,26 +114,31 @@ to the method.
 
 
 ============================================================
-## Code Smell 5: Shotgun Surgery
+## Code Smell 5: Divergent Change
 
-### Code Smell Category: [Write the code smell category name]
+### Code Smell Category: Change Preventers
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
-
+* FishFrame lines 28-40
+* FishTank 70-88
 ### Description:
-
-[In your own words, explain how the description of the code smell applies to this particular code.]
+For these Classes and methods if you were to add a new element to the fishtank you would have to change
+how both of these methods work by adding new conditions and new changes to other classes to allow
+them to work. For FishFram and Fishtank you would need to make changes to the if statements and possibly
+to the other classes depending on how they might conflict with each other.
 
 ### Solution:
 
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
+I would make it so that both of these methods don't have to know the functionality of the classes they 
+are interacting with as that is not its job. If needed I would make a new class/classes and have it do 
+the work the classes are both doing, by putting the fields and needed methods to make it functional.
 
 ### Explanation
+My solution would make it more adaptable to add new classes and elements to the fishtank program. It would
+reduce the amount of duplicate code throughout the program and reduce the complexity of working with the
+project.
 
-[How does your solution get rid of the code smell? Write your explanation here.]
 
 
 ============================================================
