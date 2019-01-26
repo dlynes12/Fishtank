@@ -61,51 +61,7 @@ and easy to understand what the method is doing.
 
 
 ============================================================
-
-## Code Smell 3: Shotgun Surgery
-
-### Code Smell Category: [Write the code smell category name]
-
-### List of classes and line numbers involved:
-
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
-
-### Description:
-
-[In your own words, explain how the description of the code smell applies to this particular code.]
-
-### Solution:
-
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
-
-### Explanation
-
-[How does your solution get rid of the code smell? Write your explanation here.]
-
-============================================================
-## Code Smell 4:  Temporary Field
-
-### Code Smell Category: 
-
-### List of classes and line numbers involved: Fish HungryFish
-
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
-
-### Description:
-
-[In your own words, explain how the description of the code smell applies to this particular code.]
-
-### Solution:
-
-
-### Explanation
-
-[How does your solution get rid of the code smell? Write your explanation here.]
-
-============================================================
-
-## Code Smell 5: Long Method
+## Code Smell 3: Long Method
 
 ### Code Smell Category: Seaweed
 
@@ -129,5 +85,55 @@ of accomplishing the same thing.
 My solution would shorten the code and make it much easier to understand and work with. The code would
 be more clean and simple afterward.
 [How does your solution get rid of the code smell? Write your explanation here.]
+
+
+============================================================
+## Code Smell 4:  Switch Staments
+
+### Code Smell Category: Object-Orientation Abusers
+
+### List of classes and line numbers involved: Fish, HungryFish
+
+*  In HungryFish and Fish lines 64-82
+
+### Description:
+
+The Method reverse appearence uses many switch Statements and if statements to accomplish a simple task. 
+This is a unnecessary use of a switch statement, it is also hard to add a new condition you would need to
+find all the switch code and modify it, which can be difficult.
+
+### Solution: 
+Rewrite the method without using a switch statement and use a different approach to accomplish the same
+outcome. I would use a method that would swap strings which represent the appearance of each fish. 
+
+
+### Explanation
+By doing this the method could be changed easily and would be easy to read. Making the code short and 
+simple. This eliminates the need for switch cases and extra work if someone wanted to make a change
+to the method.
+
+
+============================================================
+## Code Smell 5: Shotgun Surgery
+
+### Code Smell Category: [Write the code smell category name]
+
+### List of classes and line numbers involved:
+
+* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+
+### Description:
+
+[In your own words, explain how the description of the code smell applies to this particular code.]
+
+### Solution:
+
+[In your own words, explain how you might solve this code smell:
+how would you refactor the code?]
+
+### Explanation
+
+[How does your solution get rid of the code smell? Write your explanation here.]
+
 
 ============================================================
